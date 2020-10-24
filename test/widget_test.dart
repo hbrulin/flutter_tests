@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:cresus/main.dart';
+import '../examples/business_card.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
