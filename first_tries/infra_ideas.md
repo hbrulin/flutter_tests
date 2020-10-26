@@ -1,4 +1,5 @@
-1 intro page - login
+1 intro page - login - Shrine example
+Define color palette : https://material.io/tools/color/
 
 Menu : look at build button column
 	- See available products
