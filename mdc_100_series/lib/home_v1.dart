@@ -19,6 +19,36 @@ import 'model/products_repository.dart';
 import 'model/product.dart';
 
 class HomePage extends StatelessWidget {
+  // Make a collection of cards (102)
+  //List<Card> _buildGridCards(int count) {
+    //List<Card> cards = List.generate(
+      //count,
+        //(int index) => Card(
+          //clipBehavior: Clip.antiAlias,
+          //child: Column(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            //children: [
+              //AspectRatio( //decides what shape the image takes no matter what kinf of image is supplied
+                //aspectRatio: 18.0 / 11.0,
+                //child: Image.asset('assets/diamond.png'),
+              //),
+              //Padding(
+                //padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                //child: Column(
+                  //crossAxisAlignment: CrossAxisAlignment.start,
+                  //children: [
+                    //Text('Title'),
+                    //SizedBox(height: 8.0), //empty space btw two text widgets
+                    //Text('Secondary Text'),
+                  //],
+                //),
+              //),
+            //],
+          //),
+        //),
+      //);
+    //return cards;
+  //}
 
   List<Card> _buildGridCards(BuildContext context) {
     List<Product> products = ProductsRepository.loadProducts(Category.all);
@@ -81,6 +111,7 @@ class HomePage extends StatelessWidget {
     }).toList();
   }
     // TODO: Add a variable for Category (104)
+
   @override
   Widget build(BuildContext context) {
     // TODO: Return an AsymmetricView (104)
@@ -88,6 +119,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // Add app bar (102)
       appBar: AppBar(
+        brightness: Brightness.dark,
         title: Text('SHRINE'),
         leading: IconButton( //leading: before title
           icon: Icon(
@@ -122,11 +154,11 @@ class HomePage extends StatelessWidget {
       ),
       // Add a grid view (102)
       body: GridView.count( //by default grudview makes tiles that are all the same size
-          crossAxisCount: 2, //means we want two column, because gridview has a vertical main axis
-          padding: EdgeInsets.all(16.0), //space on all 4 sides of the gridview
-          childAspectRatio: 8.0 / 9.0, //identifies the size of children items based an a ratio of width over height
-          //build a grid of cards
-          children: _buildGridCards(context)
+        crossAxisCount: 2, //means we want two column, because gridview has a vertical main axis
+        padding: EdgeInsets.all(16.0), //space on all 4 sides of the gridview
+        childAspectRatio: 8.0 / 9.0, //identifies the size of children items based an a ratio of width over height
+        //build a grid of cards
+        children: _buildGridCards(context)
       ),
       // Set resizeToAvoidBottomInset so that te keyboard's appearance does not alter the size of the home page or its widgets
       resizeToAvoidBottomInset: false,

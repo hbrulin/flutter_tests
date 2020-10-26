@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:Shrine/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,6 +26,25 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  final _unfocusedColor = Colors.grey[600];
+  final _usernameFocusNode = FocusNode();
+  final _passwordFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameFocusNode.addListener(() {
+      setState(() {
+        //Redraw so that the username label reflects the focus state
+      });
+    });
+    _passwordFocusNode.addListener(() {
+      setState(() {
+        //redraw so that the password label reflects the focus state
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,51 +55,67 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 80.0),
             Column(
               children: <Widget>[
-                Image.asset('assets/diamond.png'),
+                Image.asset(
+                  'assets/diamond.png',
+                  color: kShrineBlack, //coloring the logo
+                ),
                 SizedBox(height: 16.0),
-                Text('SHRINE'),
+                Text(
+                  'SHRINE',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
               ],
             ),
             SizedBox(height: 120.0),
             // TODO: Wrap Username with AccentColorOverride (103)
-            // TODO: Remove filled: true values (103)
             // TODO: Wrap Password with AccentColorOverride (103)
             //Add Textfields for input
             // Name
             TextField(
               controller: _usernameController,
               decoration: InputDecoration(
-                filled:true, //background distinguishable
                 labelText: 'Username',
+                //filled:true, //background distinguishable. Not necessary if you have a inputdecorationtheme(app.dart)
+                labelStyle: TextStyle(
+                    color: _usernameFocusNode.hasFocus
+                        ? Theme.of(context).accentColor : _unfocusedColor),
+                ),
+                focusNode: _usernameFocusNode,
               ),
-            ),
             //spacer
             SizedBox(height: 12.0),
           //Password
             TextField(
               controller: _passwordController,
               decoration: InputDecoration(
-                filled: true,
                 labelText: 'Password',
+                //filled:true, //background distinguishable. Not necessary if you have a inputdecorationtheme(app.dart)
+                labelStyle: TextStyle(
+                    color: _passwordFocusNode.hasFocus
+                        ? Theme.of(context).accentColor : _unfocusedColor),
               ),
+              focusNode: _passwordFocusNode,
               obscureText: true, //replaces with bullets
             ),
-            // TODO: Add button bar (101)
             ButtonBar(//this arranges its children in a row
-              //TODO : Add a beveled rectangular border do CANCEL (103)
               children: <Widget>[
                 FlatButton(
                   child: Text('CANCEL'), //for the action you don't want people to do
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                   onPressed: () {
                     //clear the text fields
                     _usernameController.clear();
                     _passwordController.clear();
                   },
                 ),
-                //TODO : Add an elevation to NEXT(103)
-                //TODO : Add a beveled rectangular border to NEXT(103)
                 RaisedButton( //for the action you want people to do
                   child: Text('NEXT'),
+                  elevation: 4.0,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                   onPressed: () {
                     //pop the most recent route from the navigator (login is on top of home as defined in app.dart)
                     Navigator.pop(context);
