@@ -7,11 +7,11 @@ Home Page: look at build button column/Grid
 	- See available products
 	- See my money
 	- See what is being made with my money
-	- button menu on top with options : my profile, my contracts, param, legalees etc... (see MDC 104)
+	- button menu on top with options : my profile, my contracts, param, legalees etc... - do a simple backdrop : https://morioh.com/p/2548739a8ac9
 
 See available products : 
 	- searchbar - backdrop or animation
-	- implement filter button - backdrop
+	- implement filter button - backdrop with filtering categories
 	- categories of products?
 	- ListView and you can scroll. You get ListTiles from a database and you display the name. Or Grid with cards? Icons on cards
 	- If you click on a ListTile/Card, new page with displaying of info about product - animation of the card that expands up to show info
