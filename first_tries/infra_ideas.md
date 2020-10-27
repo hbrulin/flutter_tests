@@ -1,13 +1,12 @@
-1 intro page - login - Define color palette : https://material.io/tools/color/
+1 intro page - login - Define Theme and Define color palette : https://material.io/tools/color/
 Bouton inscription. Parcours d'inscription avec question sur vélléités d'investissement.
-
 
 Home Page: look at build button column/Grid
 	- Displays the amount of money invested and interest + availability
 	- See available products
 	- See my money
 	- See what is being made with my money
-	- button menu on top with options : my profile, my contracts, param, legalees etc... - do a simple backdrop : https://morioh.com/p/2548739a8ac9
+	- button menu on top with options : my profile, my contracts, param, legalees etc... - do a simple backdrop : https://morioh.com/p/2548739a8ac9, https://pub.dev/packages/backdrop
 
 See available products : 
 	- searchbar - backdrop or animation
