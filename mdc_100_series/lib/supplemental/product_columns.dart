@@ -36,7 +36,7 @@ class TwoProductCardColumn extends StatelessWidget {
       // TODO: Change imageAspectRatio calculation (104)
       double imageAspectRatio = constraints.biggest.width / heightOfImages;
 
-      // TODO: Replace Column with a ListView (104)
+      //Replace Column with a ListView (104)
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,14 +74,15 @@ class OneProductCardColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Replace Column with a ListView (104)
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+    return ListView(
+      physics: const ClampingScrollPhysics(),
+      reverse: true, //begin the layout from the bottom
       children: <Widget>[
-        ProductCard(
-          product: product,
-        ),
         SizedBox(
           height: 40.0,
+        ),
+        ProductCard(
+          product: product,
         ),
       ],
     );

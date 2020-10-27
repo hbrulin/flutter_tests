@@ -85,51 +85,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: Return an AsymmetricView (104)
     // TODO: Pass Category variable to AsymmetricView (104)
-    return Scaffold(
-      // Add app bar (102)
-      appBar: AppBar(
-        title: Text('SHRINE'),
-        leading: IconButton( //leading: before title
-          icon: Icon(
-            Icons.menu,
-            semanticLabel: 'menu', //for people who use screen readers
-          ),
-          onPressed: () {
-            print('Menu button');
-          },
-        ),
-        //add trailing buttons, called actions
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              semanticLabel: 'search',
-            ),
-            onPressed: () {
-              print('Search button');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.tune,
-              semanticLabel: 'filter',
-            ),
-            onPressed: () {
-              print('Filter button');
-            },
-          ),
-        ],
-      ),
-      // Add a grid view (102)
-      body: GridView.count( //by default grudview makes tiles that are all the same size
+    return GridView.count( //by default grudview makes tiles that are all the same size
           crossAxisCount: 2, //means we want two column, because gridview has a vertical main axis
           padding: EdgeInsets.all(16.0), //space on all 4 sides of the gridview
           childAspectRatio: 8.0 / 9.0, //identifies the size of children items based an a ratio of width over height
           //build a grid of cards
           children: _buildGridCards(context)
-      ),
-      // Set resizeToAvoidBottomInset so that te keyboard's appearance does not alter the size of the home page or its widgets
-      resizeToAvoidBottomInset: false,
     );
   }
 }
