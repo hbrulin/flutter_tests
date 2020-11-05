@@ -12,9 +12,9 @@ class CresusApp extends StatelessWidget {
       home: HomePage(),
       theme: ThemeData(
         brightness: Brightness.dark,
-        primaryColor: Colors.greenAccent[700],
+        primaryColor: Colors.greenAccent[400],
         accentColor: Colors.greenAccent[700],
-        buttonColor: Colors.greenAccent[700],
+        buttonColor: Colors.greenAccent[400],
         //fontFamily: 'Georgia',
         textTheme: TextTheme(
           //TRY THOSE
