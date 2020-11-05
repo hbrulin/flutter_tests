@@ -24,6 +24,6 @@ class Product {
   }
 
   @override
-  String toString() => "$name (id=$id)";
+  String toString() => "Taux : $rate%";
 
 }

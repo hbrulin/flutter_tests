@@ -55,7 +55,7 @@ class _ProductsState extends State<Products> {
                     ),
                     SizedBox(height: 8.0),
                     Text(
-                      product == null ? '' : "$product.rate",
+                      product == null ? '' : "$product", //affiche le rate conformément à fonction toString de product.dart
                       style: theme.textTheme.caption,
                     ),
                   ],
